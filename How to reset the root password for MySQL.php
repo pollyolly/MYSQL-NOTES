@@ -7,7 +7,7 @@
 Run mysql command to enter mysql cli
 
 4. mysql
-5. update user set authentication_string=password('PASSWORD') where user='root';
+5. update mysql.user set authentication_string=password('PASSWORD') where user='root';
 6. FLUSH PRIVILEGES;
 7. exit;
 8. mysqladmin -u root -p shutdown
