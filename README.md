@@ -1,13 +1,13 @@
 ### IMPROVE QUERY 300 TIMES
 
 ### Index all Column use in Where, Order by, and Group clauses
-```
+```vim
 SELECT name, age FROM user_tbl WHERE name = 'test';
 
 CREATE INDEX name ON user_tbl (name);
 ```
 ### Optimize Like statement using Union Clauses
-```
+```vim
 Using wild card will reduce the performance of a query.
 
 SELECT name, age FROM user_tbl WHERE name like '%Rol' or age like '%7'
@@ -18,19 +18,19 @@ SELECT name, age FROM user_tbl WHERE name like '%Rol' union all select FROM user
 
 ```
 ### Avoid Like expression with leading Wildcard
-```
+```vim
 MySQL will not able to utilize the indexed column when using Wildcard.
 
 Select name FROM user_tbl WHERE name like '%Rol';
 ```
 ### Use Fulltext Search
-```
+```vim
 ALTER TABLE user_tbl ADD FULLTEXT (name, age);
 
 SELECT * FROM user_tbl WHERE MATCH (name) AGINST ('Rolly');
 ```
 ### Increasing Query Cache 
-```
+```vim
 Check if query cache is supported.
 
 SHOW VARIABLES LIKE 'have_query_cache'; 
