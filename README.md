@@ -26,7 +26,7 @@ Select name FROM user_tbl WHERE name like '%Rol';
 ```sql
 ALTER TABLE user_tbl ADD FULLTEXT (name, age);
 
-SELECT * FROM user_tbl WHERE MATCH (name) AGINST ('Rolly');
+SELECT * FROM user_tbl WHERE MATCH (name) AGAINST ('Rolly');
 ```
 ### Increasing Query Cache 
 
