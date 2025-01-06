@@ -23,6 +23,11 @@ MySQL will not able to utilize the indexed column when using Wildcard.
 Select name FROM user_tbl WHERE name like '%Rol';
 ```
 ### Use Fulltext Search
+```vim
+[mysqld]
+ft_min_word_len=3
+ft_stopword_file=/path/to/stopword_file
+```
 ```sql
 CREATE TABLE user_tbl (
     id INT AUTO_INCREMENT PRIMARY KEY,
