@@ -24,9 +24,18 @@ Select name FROM user_tbl WHERE name like '%Rol';
 ```
 ### Use Fulltext Search
 ```sql
-ALTER TABLE user_tbl ADD FULLTEXT (name, age);
+CREATE TABLE user_tbl (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    nickname TEXT NOT NULL,
+    FULLTEXT (name, nickname)
+);
+
+ALTER TABLE user_tbl ADD FULLTEXT (name, nickname);
 
 SELECT * FROM user_tbl WHERE MATCH (name) AGAINST ('Rolly');
+
+SELECT * FROM user_tbl WHERE MATCH(name, nickname) AGAINST('+Satoshi -Nakamoto' IN BOOLEAN MODE);
 ```
 ### Increasing Query Cache 
 
